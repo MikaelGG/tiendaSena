@@ -1,0 +1,28 @@
+get http://localhost:4000/api/monthlyBalance/eg
+
+
+# {
+#     "codigo": 4,
+#     "nombre": "ejemplo4",
+#     "cantidad": 44444,
+#     "imagen": "url-sapjdposajd-ap.png",
+#     "f_ingreso": "2024-01-18",
+#     "f_vencimiento": "2024-03-18",
+#     "costo": 60000
+# }
+
+
+{
+    "nro": 4, 
+    "fecha": "2024-03-01", 
+    "estado": "true",
+    "cantidad": 44, 
+    "precio": 44440,  
+    "subtotal": 444440, 
+    "total": 4444000, 
+    "consumidor": 1, 
+    "producto": 1
+}
+
+
+
