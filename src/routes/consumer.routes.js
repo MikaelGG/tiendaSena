@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { querys as querysController } from "./../controllers/querys_controllers";
+import { querys as querysController } from "./../controllers/consumer.controller";
 
 const router = Router();
 

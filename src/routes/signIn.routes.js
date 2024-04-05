@@ -1,10 +1,11 @@
 import {Router} from "express";
-import {querys as querysController} from "../controllers/querys_controllers";
+import {querys as querysController} from "../controllers/signIn.controller";
 
 const router=Router();
 
 //POST
-router.post("/:correo", querysController.inicioSesion);
+router.post("/", querysController.inicioSesion);
+
 
 
 //GET

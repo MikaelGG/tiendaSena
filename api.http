@@ -1,5 +1,6 @@
-get http://localhost:4000/api/monthlyBalance/eg
+get  http://localhost:4000/api/user
 
+content-type: application/json
 
 # {
 #     "codigo": 4,
@@ -11,18 +12,31 @@ get http://localhost:4000/api/monthlyBalance/eg
 #     "costo": 60000
 # }
 
+# {
+#     "nombre":"hola",
+#     "cantidad":22,
+#     "imagen":"https://th.bing.com/th/id/OIP.AGXIOdkdRHjTmuSUyh9YPAAAAA?rs=1&pid=ImgDetMain"
+# }
 
-{
-    "nro": 4, 
-    "fecha": "2024-03-01", 
-    "estado": "true",
-    "cantidad": 44, 
-    "precio": 44440,  
-    "subtotal": 444440, 
-    "total": 4444000, 
-    "consumidor": 1, 
-    "producto": 1
-}
+# {
+#     "fecha": "2024-01-18", 
+#     "estado": 1, 
+#     "total": 20000,
+#     "consumidor":1, 
+#     "producto":1
+# }
+
+# {
+#     "id_producto": 1, 
+#     "id_factura": 18, 
+#     "nombre_producto": "Cafe", 
+#     "precio_u": 2000, 
+#     "cantidad": 2
+# }
+
+
+
+
 
 
 

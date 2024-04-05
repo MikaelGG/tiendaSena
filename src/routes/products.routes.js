@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {querys as querysController} from "../controllers/querys_controllers";
+import {querys as querysController} from "../controllers/products.controller";
 
 const router=Router();
 
@@ -9,6 +9,7 @@ router.post("/", querysController.crearProducto);
 
 //GET
 router.get("/", querysController.mostrarProducto);
+router.get("/:codigo", querysController.mostrarProductoId);
 
 
 //PUT
