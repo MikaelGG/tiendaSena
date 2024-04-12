@@ -1,6 +1,15 @@
-get  http://localhost:4000/api/user
-
+post  http://localhost:4000/api/event
 content-type: application/json
+
+{
+    "fecha": "2024-04-11",
+    "hora_inicio": "9:40am",
+    "hora_fin": "6:00pm",
+    "imagen": "alshdlahsdlhasoidhsa.co",
+    "descripcion": "ñajsda sjdoiasñidhñoaihs doinsajkbd jashñoidhipoqj hois hqopsqhshdbaljkgdliguiqghbosuildblhsgiulqh iu sdioahudigbiñajskb dñiqubbdasñdobñajksbdjkñasbdiu gasñuod",
+    "cupo": 20
+}
+
 
 # {
 #     "codigo": 4,

@@ -1,7 +1,5 @@
 import {getConnection} from "../model/database";
 
-
-
 const agregarUsuario = async (req, res) => {
     try {
         const { nombre, apellido, correo, cedula } = req.body;
@@ -42,7 +40,6 @@ const eliminarUsuario = async (req, res) => {
         res.send(err.message);
     }
 };
-
 
 export const querys = {
     agregarUsuario,

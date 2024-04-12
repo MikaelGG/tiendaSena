@@ -27,7 +27,7 @@ app.set("port", 4000);
 
 
 
-//middlewares
+//middleware
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
