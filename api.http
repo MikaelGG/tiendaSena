@@ -1,4 +1,4 @@
-post  http://localhost:4000/api/event
+get http://localhost:4000/api/invoiceProd/modal/49
 content-type: application/json
 
 {

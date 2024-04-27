@@ -8,6 +8,7 @@ router.post("/", querysController.crearFacturaProd)
 
 //GET
 router.get("/:id_factura", querysController.mostrarProdctsFact)
+router.get("/modal/:id_factura", querysController.mostrarFactura)
 
 //PUT
 

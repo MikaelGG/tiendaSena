@@ -31,8 +31,21 @@ const mostrarProdctsFact = async (req, res) => {
     }
 }
 
+const mostrarFactura = async (req, res) => {
+    try {
+        const {id_factura} = req.params;
+        const connection = await getConnection();
+        const result = await connection.query("SELECT p.nombre as nombreProducto, fp.precio_u as precioU, fp.cantidad as cantidad, (fp.precio_u * fp.cantidad) as subTotal from productos p inner join facturas_prod fp on p.codigo = fp.id_producto inner join facturas f on f.nro = fp.id_factura where f.nro = ?", id_factura);
+        res.json(result[0]);
+    } catch (err) {
+        res.status(500);
+        res.send(err.message);
+    }
+}
+
 
 export const querys = {
     crearFacturaProd,
-    mostrarProdctsFact
+    mostrarProdctsFact,
+    mostrarFactura
 }

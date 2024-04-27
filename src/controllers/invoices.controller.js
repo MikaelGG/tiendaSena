@@ -2,12 +2,11 @@ import {getConnection} from "../model/database";
 
 const crearFactura = async (req, res) => {
     try {
-        const { fecha, estado, total, producto, consumidor } = req.body;
+        const { fecha, estado, total, consumidor } = req.body;
         const newInvoice = {
             fecha, 
             estado,
             total,
-            producto, 
             consumidor
         }
         const connection = await getConnection();
@@ -22,7 +21,7 @@ const crearFactura = async (req, res) => {
 const mostrarFactura = async (req, res) => {
     try {
         const connection = await getConnection();
-        const result = await connection.query("SELECT f.*, p.nombre as nombreProducto FROM facturas f inner join productos p on f.producto = p.codigo");
+        const result = await connection.query("SELECT f.*, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor FROM facturas f inner join consumidores c on c.cedula = f.consumidor ");
         res.json(result[0]);
     } catch (err) {
         res.status(500);
