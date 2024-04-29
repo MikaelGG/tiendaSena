@@ -3,7 +3,7 @@ import {getConnection} from "../model/database";
 const mostrarVentasDia = async (req, res) => {
     try {
         const connection = await getConnection();
-        const result = await connection.query("SELECT f.nro as nroFactura, c.nombre as nombreConsumidor, p.nombre as nombreProducto, f.total as total from facturas f inner join consumidores c on f.consumidor = c.cedula inner join productos p on f.producto = p.codigo WHERE DATE(fecha) = CURDATE();");
+        const result = await connection.query("SELECT f.fecha as fecha, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor, f.total as total from facturas f inner join consumidores c on f.consumidor = c.cedula WHERE DATE(fecha) = CURDATE()");
         res.json(result[0]);
     } catch (err) {
         res.status(500);
