@@ -17,5 +17,4 @@ router.get("/", querysController.mostarConsumidor);
 //DELETE
 
 
-
 export default router;

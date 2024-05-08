@@ -18,5 +18,4 @@ router.get("/", querysController.mostrarProveedores);
 //DELETE
 
 
-
 export default router;

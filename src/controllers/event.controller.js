@@ -2,9 +2,9 @@ import {getConnection} from "../model/database";
 
 const registrarEvento = async (req, res) => {
     try {
-        const { codigo, fecha, hora_inicio, hora_fin, imagen, descripcion, cupo} = req.body;
+        const { titulo, fecha, hora_inicio, hora_fin, imagen, descripcion, cupo} = req.body;
         const newEvent = {
-            codigo,
+            titulo,
             fecha,
             hora_inicio,
             hora_fin, 

@@ -29,6 +29,7 @@ const mostarConsumidor = async (req, res) => {
     }
 };
 
+
 export const querys = {
     crearConsumidor,
     mostarConsumidor
