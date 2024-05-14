@@ -16,7 +16,7 @@ router.get("/", querysController.mostrarFactura);
 
 
 //DELETE
-
+router.delete("/:nro", querysController.eliminarFactura);
 
 
 export default router;

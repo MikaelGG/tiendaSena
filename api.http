@@ -1,13 +1,22 @@
-delete http://localhost:4000/api/consumer/0
+delete http://localhost:4000/api/invoice/38
 content-type: application/json
 
+# {
+#     "fecha": "2024-04-11",
+#     "hora_inicio": "9:40am",
+#     "hora_fin": "6:00pm",
+#     "imagen": "alshdlahsdlhasoidhsa.co",
+#     "descripcion": "ñajsda sjdoiasñidhñoaihs doinsajkbd jashñoidhipoqj hois hqopsqhshdbaljkgdliguiqghbosuildblhsgiulqh iu sdioahudigbiñajskb dñiqubbdasñdobñajksbdjkñasbdiu gasñuod",
+#     "cupo": 20
+# }
+
 {
-    "fecha": "2024-04-11",
-    "hora_inicio": "9:40am",
-    "hora_fin": "6:00pm",
-    "imagen": "alshdlahsdlhasoidhsa.co",
-    "descripcion": "ñajsda sjdoiasñidhñoaihs doinsajkbd jashñoidhipoqj hois hqopsqhshdbaljkgdliguiqghbosuildblhsgiulqh iu sdioahudigbiñajskb dñiqubbdasñdobñajksbdjkñasbdiu gasñuod",
-    "cupo": 20
+    "imagen": "https://th.bing.com/th/id/OIP.RCDoF-MEDhllMfjJmw88ygHaHa?rs=1&pid=ImgDetMain",
+    "nombre": "Harina de trigo",
+    "cantidad": 2,
+    "f_ingreso": "2024-04-12",
+    "f_vencimiento": "2024-04-16",
+    "costo": 4000
 }
 
 

@@ -29,7 +29,21 @@ const mostrarFactura = async (req, res) => {
     }
 };
 
+const eliminarFactura = async (req, res) => {
+    try {
+        const { nro } = req.params;
+        const connection = await getConnection();
+        const result = await connection.query("DELETE FROM facturas_prod WHERE id_factura = ?", nro);
+        const result2 = await connection.query("DELETE FROM facturas WHERE nro = ?", nro);
+        res.json("Invoices deleted");
+    } catch (err) {
+        res.status(500);
+        res.send(err.message);
+    }
+}
+
 export const querys = {
     crearFactura,
-    mostrarFactura
+    mostrarFactura,
+    eliminarFactura
 }
