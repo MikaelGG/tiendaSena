@@ -2,14 +2,14 @@ import {getConnection} from "../model/database";
 
 const crearProducto = async (req, res) => {
     try {
-        const { codigo, imagen, nombre, descripcion, precio, cantidad } = req.body;
+        const { codigo, imagen, nombre, descripcion, precio, tipo } = req.body;
         const newProduct = {
             codigo, 
             imagen, 
             nombre, 
             descripcion, 
-            precio, 
-            cantidad
+            precio,
+            tipo
         }
         const connection = await getConnection();
         const result = await connection.query("INSERT INTO productos SET ?", newProduct);
@@ -23,14 +23,14 @@ const crearProducto = async (req, res) => {
 const actualizarProducto = async (req, res) => {
     try {
         const { codigo } = req.params;
-        const { imagen, nombre, descripcion, precio, cantidad } = req.body;
+        const { imagen, nombre, descripcion, precio, tipo } = req.body;
         const newProduct = {
             codigo, 
             imagen, 
             nombre, 
             descripcion, 
-            precio, 
-            cantidad
+            precio,
+            tipo
         }
         const connection = await getConnection();
         const result = await connection.query("UPDATE productos SET ? WHERE codigo = ?", [newProduct, codigo]);
