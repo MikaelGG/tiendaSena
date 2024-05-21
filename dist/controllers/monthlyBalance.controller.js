@@ -21,7 +21,7 @@ var mostrarVentasMes = /*#__PURE__*/function () {
         case 3:
           connection = _context.sent;
           _context.next = 6;
-          return connection.query("SELECT f.fecha as fecha, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor, f.total as total FROM facturas f inner join consumidores c on f.consumidor = c.cedula WHERE MONTH(fecha) = MONTH(CURDATE()) AND YEAR(fecha) = YEAR(CURDATE())");
+          return connection.query("SELECT f.fecha as fecha, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor, f.total as total FROM facturas f inner join consumidores c on f.consumidor = c.cedula WHERE MONTH(fecha) = MONTH(CURDATE()) AND YEAR(fecha) = YEAR(CURDATE()) ORDER BY fecha DESC");
         case 6:
           result = _context.sent;
           res.json(result[0]);
@@ -54,7 +54,7 @@ var ingresosMes = /*#__PURE__*/function () {
         case 3:
           connection = _context2.sent;
           _context2.next = 6;
-          return connection.query("SELECT COALESCE(SUM(total), 0) as Ingresos FROM facturas WHERE MONTH(fecha) = MONTH(CURDATE()) AND YEAR(fecha) = YEAR(CURDATE())");
+          return connection.query("SELECT COALESCE(SUM(total), 0) as Ingresos FROM facturas WHERE total > 0 AND MONTH(fecha) = MONTH(CURDATE()) AND YEAR(fecha) = YEAR(CURDATE())");
         case 6:
           result = _context2.sent;
           res.json(result[0]);

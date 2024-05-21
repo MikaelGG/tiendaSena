@@ -1,4 +1,4 @@
-delete http://localhost:4000/api/invoice/38
+get http://localhost:4000/api/invoice/2024-05-17
 content-type: application/json
 
 # {

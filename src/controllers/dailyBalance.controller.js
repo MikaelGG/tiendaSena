@@ -3,7 +3,7 @@ import {getConnection} from "../model/database";
 const mostrarVentasDia = async (req, res) => {
     try {
         const connection = await getConnection();
-        const result = await connection.query("SELECT f.fecha as fecha, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor, f.total as total from facturas f inner join consumidores c on f.consumidor = c.cedula WHERE DATE(fecha) = CURDATE()");
+        const result = await connection.query("SELECT f.fecha as fecha, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor, f.total as total from facturas f inner join consumidores c on f.consumidor = c.cedula WHERE DATE(fecha) = CURDATE() ORDER BY fecha DESC");
         res.json(result[0]);
     } catch (err) {
         res.status(500);
@@ -14,7 +14,7 @@ const mostrarVentasDia = async (req, res) => {
 const ingresosDia = async (req, res) => {
     try {
         const connection = await getConnection();
-        const result = await connection.query("SELECT COALESCE(SUM(total), 0) as Ingresos FROM facturas WHERE DATE(fecha) = CURDATE()");
+        const result = await connection.query("SELECT COALESCE(SUM(total), 0) as Ingresos FROM facturas WHERE total > 0 AND DATE(fecha) = CURDATE()");
         res.json(result[0]);
     } catch (err) {
         res.status(500);

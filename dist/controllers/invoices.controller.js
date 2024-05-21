@@ -61,7 +61,7 @@ var mostrarFactura = /*#__PURE__*/function () {
         case 3:
           connection = _context2.sent;
           _context2.next = 6;
-          return connection.query("SELECT f.*, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor FROM facturas f inner join consumidores c on c.cedula = f.consumidor ");
+          return connection.query("SELECT f.*, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor FROM facturas f inner join consumidores c on c.cedula = f.consumidor ORDER BY f.nro DESC");
         case 6:
           result = _context2.sent;
           res.json(result[0]);
@@ -82,46 +82,81 @@ var mostrarFactura = /*#__PURE__*/function () {
     return _ref2.apply(this, arguments);
   };
 }();
-var eliminarFactura = /*#__PURE__*/function () {
+var mostrarFacturaFecha = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(req, res) {
-    var nro, connection, result, result2;
+    var fechaList, connection, result;
     return _regeneratorRuntime().wrap(function _callee3$(_context3) {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
           _context3.prev = 0;
-          nro = req.params.nro;
+          fechaList = req.params.fechaList;
           _context3.next = 4;
           return (0, _database.getConnection)();
         case 4:
           connection = _context3.sent;
           _context3.next = 7;
-          return connection.query("DELETE FROM facturas_prod WHERE id_factura = ?", nro);
+          return connection.query("SELECT f.*, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor FROM facturas f inner join consumidores c on c.cedula = f.consumidor WHERE fecha = ?", fechaList);
         case 7:
           result = _context3.sent;
-          _context3.next = 10;
-          return connection.query("DELETE FROM facturas WHERE nro = ?", nro);
-        case 10:
-          result2 = _context3.sent;
-          res.json("Invoices deleted");
-          _context3.next = 18;
+          res.json(result[0]);
+          _context3.next = 15;
           break;
-        case 14:
-          _context3.prev = 14;
+        case 11:
+          _context3.prev = 11;
           _context3.t0 = _context3["catch"](0);
           res.status(500);
           res.send(_context3.t0.message);
-        case 18:
+        case 15:
         case "end":
           return _context3.stop();
       }
-    }, _callee3, null, [[0, 14]]);
+    }, _callee3, null, [[0, 11]]);
   }));
-  return function eliminarFactura(_x5, _x6) {
+  return function mostrarFacturaFecha(_x5, _x6) {
     return _ref3.apply(this, arguments);
+  };
+}();
+var eliminarFactura = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(req, res) {
+    var nro, connection, result, result2;
+    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+      while (1) switch (_context4.prev = _context4.next) {
+        case 0:
+          _context4.prev = 0;
+          nro = req.params.nro;
+          _context4.next = 4;
+          return (0, _database.getConnection)();
+        case 4:
+          connection = _context4.sent;
+          _context4.next = 7;
+          return connection.query("DELETE FROM facturas_prod WHERE id_factura = ?", nro);
+        case 7:
+          result = _context4.sent;
+          _context4.next = 10;
+          return connection.query("DELETE FROM facturas WHERE nro = ?", nro);
+        case 10:
+          result2 = _context4.sent;
+          res.json("Invoices deleted");
+          _context4.next = 18;
+          break;
+        case 14:
+          _context4.prev = 14;
+          _context4.t0 = _context4["catch"](0);
+          res.status(500);
+          res.send(_context4.t0.message);
+        case 18:
+        case "end":
+          return _context4.stop();
+      }
+    }, _callee4, null, [[0, 14]]);
+  }));
+  return function eliminarFactura(_x7, _x8) {
+    return _ref4.apply(this, arguments);
   };
 }();
 var querys = exports.querys = {
   crearFactura: crearFactura,
   mostrarFactura: mostrarFactura,
+  mostrarFacturaFecha: mostrarFacturaFecha,
   eliminarFactura: eliminarFactura
 };

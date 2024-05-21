@@ -9,6 +9,7 @@ router.post("/", querysController.crearFactura);
 
 //GET
 router.get("/", querysController.mostrarFactura);
+router.get("/:fechaList", querysController.mostrarFacturaFecha);
 
 
 //PUT

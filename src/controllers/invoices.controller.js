@@ -21,7 +21,19 @@ const crearFactura = async (req, res) => {
 const mostrarFactura = async (req, res) => {
     try {
         const connection = await getConnection();
-        const result = await connection.query("SELECT f.*, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor FROM facturas f inner join consumidores c on c.cedula = f.consumidor ");
+        const result = await connection.query("SELECT f.*, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor FROM facturas f inner join consumidores c on c.cedula = f.consumidor ORDER BY f.nro DESC");
+        res.json(result[0]);
+    } catch (err) {
+        res.status(500);
+        res.send(err.message);
+    }
+};
+
+const mostrarFacturaFecha = async (req, res) => {
+    try {
+        const { fechaList } = req.params;
+        const connection = await getConnection();
+        const result = await connection.query("SELECT f.*, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor FROM facturas f inner join consumidores c on c.cedula = f.consumidor WHERE fecha = ?", fechaList);
         res.json(result[0]);
     } catch (err) {
         res.status(500);
@@ -45,5 +57,6 @@ const eliminarFactura = async (req, res) => {
 export const querys = {
     crearFactura,
     mostrarFactura,
+    mostrarFacturaFecha,
     eliminarFactura
 }

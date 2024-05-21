@@ -21,7 +21,7 @@ var mostrarVentasDia = /*#__PURE__*/function () {
         case 3:
           connection = _context.sent;
           _context.next = 6;
-          return connection.query("SELECT f.fecha as fecha, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor, f.total as total from facturas f inner join consumidores c on f.consumidor = c.cedula WHERE DATE(fecha) = CURDATE()");
+          return connection.query("SELECT f.fecha as fecha, c.nombre as nombreConsumidor, c.apellido as apellidoConsumidor, f.total as total from facturas f inner join consumidores c on f.consumidor = c.cedula WHERE DATE(fecha) = CURDATE() ORDER BY fecha DESC");
         case 6:
           result = _context.sent;
           res.json(result[0]);
@@ -54,7 +54,7 @@ var ingresosDia = /*#__PURE__*/function () {
         case 3:
           connection = _context2.sent;
           _context2.next = 6;
-          return connection.query("SELECT COALESCE(SUM(total), 0) as Ingresos FROM facturas WHERE DATE(fecha) = CURDATE()");
+          return connection.query("SELECT COALESCE(SUM(total), 0) as Ingresos FROM facturas WHERE total > 0 AND DATE(fecha) = CURDATE()");
         case 6:
           result = _context2.sent;
           res.json(result[0]);

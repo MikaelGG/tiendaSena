@@ -13,6 +13,7 @@ router.post("/", _invoices.querys.crearFactura);
 
 //GET
 router.get("/", _invoices.querys.mostrarFactura);
+router.get("/:fechaList", _invoices.querys.mostrarFacturaFecha);
 
 //PUT
 
