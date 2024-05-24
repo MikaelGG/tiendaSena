@@ -1,11 +1,11 @@
 import mysql from "mysql2/promise";
-import config from "../config";
+// import config from "../config";
 
 const connection = mysql.createPool({
-    host: config.host,
-    database: config.database,
-    user: config.user,
-    password: config.password,
+    host: 'mysql.adso.cloud',
+    database: 'bd_latiendadelcafe',
+    user: 'user_latienda',
+    password: 'Latienda2024*',
     waitForConnections: true,
     connectionLimit: 10, 
     queueLimit: 0
