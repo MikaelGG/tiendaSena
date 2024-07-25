@@ -22,7 +22,7 @@ import invoicesProd from "./routes/invoicesProd.routes"
 const app = express();
 
 //Settings
-app.set("port", 4000); 
+app.set("port", 3000);
 
 
 
